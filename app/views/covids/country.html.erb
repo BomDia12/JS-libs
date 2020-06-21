@@ -1,0 +1,23 @@
+<%= javascript_include_tag 'chart' %>
+<canvas id="countryChart"></canvas>
+<h1 id="error"></h1>
+
+<script>
+    $(document).on('turbolinks:load', async function () {
+        let ctx = document.getElementById('countryChart').getContext('2d');
+        let covid_data = await get_country_data("<%= @country %>");
+        console.log(covid_data);
+        covid_data = covid_data.data
+        let countryChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: ['casos', 'mortes', "pessoas curadas"],
+                datasets: [{
+                    label: covid_data.country,
+                    data: fetch_country_data(covid_data),
+                    backgroundColor: ["rgba(0, 0, 0, 0.5)", "rgba(255, 0, 0, 0.5)", "rgba(0, 255, 0, 0.5)"]
+                }]
+            }
+        })
+    })
+</script>
