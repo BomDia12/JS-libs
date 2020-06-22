@@ -1,8 +1,8 @@
 <h1>Homepage</h1>
 
-<%= link_to 'Feriados Canadênses', covid_path %> <br>
+<%= link_to 'Feriados Canadênses', calendar_path %> <br>
 <%= link_to "Top 5 países com covid", covid_path %> <br>
 <%= javascript_include_tag 'chart' %>
 <% @countries.each do |country| %>
-  <%= link_to 'Dados do ' << country, '/covid/' << country %><br>
+  <%= link_to 'Dados d' << country[1], '/covid/' << country[0] %><br>
 <% end %>

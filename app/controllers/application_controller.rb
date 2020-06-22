@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::Base
   def homepage
-    @countries = ['brazil', 'us', 'united kingdom', 'canada', 'china', 'spain', 'rusia', 'india']
+    @countries = [['brazil', 'o Brasil'], ['us', 'os Estados Unidos'], ['united kingdom', 'o Reino Unido'],
+                  ['canada', 'o Canada'], ['china', 'a China'], ['spain', 'a Espanha'], ['russia', 'a Russia'],
+                  ['india', 'a Índia']]
   end
 end

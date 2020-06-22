@@ -1,5 +1,6 @@
 <%= javascript_include_tag 'chart' %>
 <canvas id="myChart"></canvas>
+<%= link_to 'Voltar', root_path %>
 
 <script>
     $(document).on('turbolinks:load', async function () {
@@ -9,7 +10,7 @@
         covid_data = covid_data.data
         covid_data = sort_contries_by_cases(covid_data)
         console.log(covid_data)
-        covid_data = covid_data.slice(0, 99)
+        covid_data = covid_data.slice(0, 5)
         let myChart = new Chart(ctx, {
             type: 'horizontalBar',
             data: {
